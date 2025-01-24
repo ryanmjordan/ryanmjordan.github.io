@@ -25,8 +25,12 @@
 
     /* Flicker animation */
     @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.4; }
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.4;
+      }
     }
 
     .flicker {
@@ -36,5 +40,27 @@
 </head>
 <body>
   <h1 class="flicker">Coming Soon...</h1>
+  
+  <script>
+    // This variable will hold the characters typed by the user.
+    let typedSequence = '';
+
+    // Listen for key presses on the entire page
+    document.addEventListener('keypress', function(event) {
+      // Add the newly pressed key to the sequence
+      typedSequence += event.key;
+
+      // If typedSequence gets too long, keep only the last 4 chars
+      if (typedSequence.length > 4) {
+        typedSequence = typedSequence.slice(-4);
+      }
+
+      // Check if the last 4 characters match "1337"
+      if (typedSequence === '1337') {
+        // Redirect to your chosen URL
+        window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs';
+      }
+    });
+  </script>
 </body>
 </html>
